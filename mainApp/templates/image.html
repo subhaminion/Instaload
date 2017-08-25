@@ -10,22 +10,21 @@
     	.container{
 			text-align: center;
 			margin: 0 auto;
-			width: 500px;
-			padding-top: 20%;
+			/*width: 100%;
+			padding-top: 20%;*/
 		}
     </style>
 </head>
 <body>
 	<div class="container">
-		<p><b>Download Instagram HD Photos (Full size): right click > save image </b></p>
-		<form action="{% url 'download' %}" method="POST" class="form-horizontal">
-		{% csrf_token %}
-			<div class="form-group">
-			    <input type="url" id="input" class="form-control" name="iurl" placeholder="Image Link Goes here" autocomplete="off" required><br>
-				<input type="submit" value="SUBMIT" class="btn btn-primary btn-lg">
-		    </div>
-		</form>
-		<p>Made with <span style="color: #e74c3c">&hearts;</span> by Subham Bhattacharjee</a></p>
+		<p><b>Download the Photo by right clicking and then Save Image </b></p>
+		{% if img %}
+			<img src="{{ img }}" style="width: 50%;">
+		{% else %}
+			<img src="http://www.bizexpert.in/supercat/noimagefound.png" style="width: 50%;">
+		{% endif %}
+		<br><br>
+		<a href="{% url 'instaurl' %}" class="btn btn-primary btn-lg">RETURN</a>
 	</div>
 </body>
 </html>

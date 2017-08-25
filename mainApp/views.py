@@ -16,9 +16,14 @@ def download(request):
 		url   = request.POST.get('iurl')
 		raw   = requests.get(url)
 		soup  = BeautifulSoup(raw.text, 'html.parser')
-		
 		links = soup.find(property="og:image")
 		image = links.get('content')
-		while image != '':
-			html = '<img src="'+image+'" align="center">'
-			return HttpResponse(html)
+		template = loader.get_template('image.html')
+		context = {
+			'img': image
+		}
+		return HttpResponse(template.render(context, request))
+		# while image != '':
+		# 	html = '<img src="'+image+'" align="center">'
+		# 	html += '<>'
+		# 	return HttpResponse(html)
