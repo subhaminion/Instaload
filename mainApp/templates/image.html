@@ -1,0 +1,30 @@
+<!Doctype html>
+<html>
+<head>
+	<title> Instaload </title>
+	<link rel="icon" href="https://www.instagram.com/static/images/ico/favicon.ico/dfa85bb1fd63.ico" type="image/gif" sizes="16x16">
+	<meta name="description" content="Instagram Online Photo Downloader. Simple way to download Instagram pictures online from your browser.">
+    <meta name="keywords" content="Download Instagram Photos online, download Instagram pictures, save instagram pictures from browser">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <style type="text/css">
+    	.container{
+			text-align: center;
+			margin: 0 auto;
+			/*width: 100%;
+			padding-top: 20%;*/
+		}
+    </style>
+</head>
+<body>
+	<div class="container">
+		<p><b>Download the Photo by right clicking and then Save Image </b></p>
+		{% if img %}
+			<img src="{{ img }}" style="width: 50%;">
+		{% else %}
+			<img src="http://www.bizexpert.in/supercat/noimagefound.png" style="width: 50%;">
+		{% endif %}
+		<br><br>
+		<a href="{% url 'instaurl' %}" class="btn btn-primary btn-lg">RETURN</a>
+	</div>
+</body>
+</html>
